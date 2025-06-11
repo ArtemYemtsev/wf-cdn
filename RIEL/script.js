@@ -52,5 +52,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
       gsap.set(text, { visibility: "visible" });
     });
+
+    const pinnedHero = document.querySelector('.hero');
+    if (pinnedHero) {
+      ScrollTrigger.create({
+        trigger: pinnedHero,
+        start: () => pinnedHero.offsetHeight < window.innerHeight ? "top top" : "bottom bottom", // if it's shorter than the viewport, we prefer to pin it at the top
+        pin: true, 
+        pinSpacing: false,
+        markers: true,
+      });
+    }
   });
 });
