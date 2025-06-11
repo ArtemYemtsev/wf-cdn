@@ -67,46 +67,23 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Animation 5
-    // const sectPinCards = document.querySelector('.section-pined-cards');
-    // if (sectPinCards) {
-    //   const tlStackCards = gsap.timeline({
-    //     scrollTrigger: {
-    //       trigger: sectPinCards,
-    //       end: 'bottom bottom',
-    //       scrub: 0.3,
-    //       toggleActions: 'restart none reverse',
-    //     },
-    //   });
-    
-    //   tlStackCards.from('.card-item', {
-    //     opacity: 0.8,
-    //     yPercent: 350,  // Adjusted for a more pronounced vertical movement
-    //     scale: 1.1,  // Start from scale 0 to scale 1 for a scaling effect
-    //     duration: 1.2,
-    //     stagger: { each: 0.5, from: 'end' },  // Adjusted stagger for a quicker succession
-    //   });
-    // }
     const sectPinCards = document.querySelector('.section-pined-cards');
     if (sectPinCards) {
-      const cards = gsap.utils.toArray('.card-item');
-
-      // Reverse порядок для правильной стопки
-      cards.reverse();
-
-      gsap.timeline({
+      const tlStackCards = gsap.timeline({
         scrollTrigger: {
           trigger: sectPinCards,
-          start: 'top top',
-          end: `+=${cards.length * 200}`, // Длина анимации зависит от количества карточек
-          scrub: true,
-          pin: true,
-          markers: true, // временно
-        }
-      }).to(cards, {
-        yPercent: 350,
-        scale: 1.1,
+          end: 'bottom bottom',
+          scrub: 0.3,
+          toggleActions: 'restart none reverse',
+        },
+      });
+    
+      tlStackCards.from('.card-item', {
+        opacity: 0.8,
+        yPercent: 350,  // Adjusted for a more pronounced vertical movement
+        scale: 1.1,  // Start from scale 0 to scale 1 for a scaling effect
         duration: 1.2,
-        stagger: { each: 0.5, from: 'end' },
+        stagger: { each: 0.5, from: 'end' },  // Adjusted stagger for a quicker succession
       });
     }
 
