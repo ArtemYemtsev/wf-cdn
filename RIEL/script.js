@@ -31,8 +31,6 @@ document.addEventListener('DOMContentLoaded', () => {
         charsClass: "char",
       });
 
-      console.log(split);
-
       if (split.words.length) {
         const tl = gsap.timeline({
           scrollTrigger: {
@@ -72,8 +70,11 @@ document.addEventListener('DOMContentLoaded', () => {
       const tlStackCards = gsap.timeline({
         scrollTrigger: {
           trigger: sectPinCards,
+          start: 'top top',
           end: 'bottom bottom',
           scrub: 0.3,
+          pin: true,
+          pinSpacing: true,
           toggleActions: 'restart none reverse',
         },
       });
