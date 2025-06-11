@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.fonts.ready.then(() => {
     gsap.registerPlugin(ScrollTrigger, SplitText);
 
+    // Animation 1
     document.querySelectorAll("[data-word-reveal='true']").forEach((text) => {
       const split = SplitText.create(text, {
         type: "words, chars",
@@ -53,6 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
       gsap.set(text, { visibility: "visible" });
     });
 
+    // Animation 4
     const pinnedHero = document.querySelector('.hero');
     if (pinnedHero) {
       ScrollTrigger.create({
@@ -63,5 +65,27 @@ document.addEventListener('DOMContentLoaded', () => {
         markers: true,
       });
     }
+
+    // Animation 5
+    const sectPinCards = document.querySelector('.section-pined-cards');
+    if (sectPinCards) {
+      const tlStackCards = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectPinCards,
+          end: 'bottom bottom',
+          scrub: 0.3,
+          toggleActions: 'restart none reverse',
+        },
+      });
+    
+      tlStackCards.from('.card-item', {
+        opacity: 0.8,
+        yPercent: 350,  // Adjusted for a more pronounced vertical movement
+        scale: 1.1,  // Start from scale 0 to scale 1 for a scaling effect
+        duration: 1.2,
+        stagger: { each: 0.5, from: 'end' },  // Adjusted stagger for a quicker succession
+      });
+    }
+
   });
 });
