@@ -103,10 +103,10 @@ document.addEventListener('DOMContentLoaded', () => {
           markers: true, // временно
         }
       }).to(cards, {
-        yPercent: (i) => -(i + 1) * 20,  // Каждая наезжает выше предыдущей
-        scale: (i) => 1 - (i + 1) * 0.03,
-        stagger: 0.2,
-        ease: 'none',
+        yPercent: 350,
+        scale: 1.1,
+        duration: 1.2,
+        stagger: { each: 0.5, from: 'end' },
       });
     }
 
