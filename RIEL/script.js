@@ -88,23 +88,25 @@ document.addEventListener('DOMContentLoaded', () => {
     // }
     const sectPinCards = document.querySelector('.section-pined-cards');
     if (sectPinCards) {
-      const tlStackCards = gsap.timeline({
+      const cards = gsap.utils.toArray('.card-item');
+
+      // Reverse порядок для правильной стопки
+      cards.reverse();
+
+      gsap.timeline({
         scrollTrigger: {
           trigger: sectPinCards,
           start: 'top top',
-          end: 'bottom bottom',
-          scrub: 0.3,
+          end: `+=${cards.length * 200}`, // Длина анимации зависит от количества карточек
+          scrub: true,
           pin: true,
-          markers: true, // временно включи для отладки
-        },
-      });
-
-      tlStackCards.from('.card-item', {
-        autoAlpha: 0,
-        yPercent: 100,
-        scale: 1.05,
-        duration: 1.2,
-        stagger: { each: 0.3, from: 'end' },
+          markers: true, // временно
+        }
+      }).to(cards, {
+        yPercent: (i) => -(i + 1) * 20,  // Каждая наезжает выше предыдущей
+        scale: (i) => 1 - (i + 1) * 0.03,
+        stagger: 0.2,
+        ease: 'none',
       });
     }
 
