@@ -9,13 +9,68 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const style = document.createElement('style');
   style.innerText = `html:not(.gsap-not-found) [data-prevent-flicker='true'] { visibility: hidden; }
-  .line-mask, .word-mask, .char-mask { padding-block: 0.1em; margin-block: -0.1em; }`;
+  .line-mask, .word-mask, .char-mask { padding-block: 0.1em; margin-block: -0.1em; }
+  /* arrow animation */
+  .absolute {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  .arrow-hover-anim {
+    display: flex;
+    height: 12px;
+    color: black;
+    position: relative;
+  }
+  .arrow-hover-anim svg:nth-child(2) g line:nth-child(3) {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    transition: stroke-dashoffset 0.4s ease, opacity 0.4s ease;
+  }
+
+  .arrow-hover-anim svg:nth-child(2) g line {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    transition: stroke-dashoffset 0.4s 0.4s ease, opacity 0.4s 0.4s ease;
+  }
+
+  .arrow-hover-anim:hover svg:nth-child(1) g line {
+    transition: opacity 0.3s ease;
+  }
+
+  .arrow-hover-anim:hover svg:nth-child(1) g line {
+    opacity: 0;
+  }
+
+  .arrow-hover-anim:hover svg:nth-child(2) g line {
+    stroke-dashoffset: 0;
+  }
+  `;
 
   const noscript = document.createElement('noscript');
   noscript.innerText = `<style>[data-prevent-flicker='true'] { visibility: visible !important; }</style>`;
 
   document.head.appendChild(style);
   document.head.appendChild(noscript);
+
+  // arrow animation
+  const arrowAnimHoverBlock = document.querySelector('.arrow-anim-hover');
+  const arrow = `<svg aria-hidden="true" width="35" height="12" style="opacity: 1;">
+    <g transform="translate(0 .6)" stroke="currentColor" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round">
+      <line pathLength="1" stroke-dasharray="1" x1="34.5" y1="4.9" x2="29.7"></line>
+      <line pathLength="1" stroke-dasharray="1" x1="34.5" y1="4.9" x2="29.7" y2="10"></line>
+      <line pathLength="1" stroke-dasharray="1" x1=".5" y1="4.9" x2="34.5" y2="4.9"></line>
+    </g>
+  </svg>
+
+  <svg aria-hidden="true" class="absolute" width="35" height="12">
+    <g transform="translate(0 .6)" stroke="currentColor" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round">
+      <line pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" x1="34.5" y1="4.9" x2="29.7"></line>
+      <line pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" x1="34.5" y1="4.9" x2="29.7" y2="10"></line>
+      <line pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" x1=".5" y1="4.9" x2="34.5" y2="4.9"></line>
+    </g>
+  </svg>`;
+  arrowAnimHoverBlock.innerHTML = arrow;
 
   if (typeof window.gsap === "undefined") document.documentElement.classList.add("gsap-not-found");
 
