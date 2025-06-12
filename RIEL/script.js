@@ -34,15 +34,15 @@ document.addEventListener('DOMContentLoaded', () => {
     transition: stroke-dashoffset 0.4s 0.4s ease, opacity 0.4s 0.4s ease;
   }
 
-  .arrow-hover-anim:hover svg:nth-child(1) g line {
+  .link-arrow:hover .arrow-hover-anim svg:nth-child(1) g line {
     transition: opacity 0.3s ease;
   }
 
-  .arrow-hover-anim:hover svg:nth-child(1) g line {
+  .link-arrow:hover .arrow-hover-anim svg:nth-child(1) g line {
     opacity: 0;
   }
 
-  .arrow-hover-anim:hover svg:nth-child(2) g line {
+  .link-arrow:hover .arrow-hover-anim svg:nth-child(2) g line {
     stroke-dashoffset: 0;
   }
   `;
