@@ -65,28 +65,28 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Animation 5
-    const sectPinCards = document.querySelector('.section-pined-cards');
-    if (sectPinCards) {
-      const tlStackCards = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectPinCards,
-          start: 'top top',
-          end: 'bottom bottom',
-          scrub: 0.3,
-          pin: true,
-          pinSpacing: true,
-          toggleActions: 'restart none reverse',
-        },
-      });
+    // const sectPinCards = document.querySelector('.section-pined-cards');
+    // if (sectPinCards) {
+    //   const tlStackCards = gsap.timeline({
+    //     scrollTrigger: {
+    //       trigger: sectPinCards,
+    //       start: 'top top',
+    //       end: 'bottom bottom',
+    //       scrub: 0.3,
+    //       pin: true,
+    //       pinSpacing: true,
+    //       toggleActions: 'restart none reverse',
+    //     },
+    //   });
     
-      tlStackCards.from('.card-item', {
-        opacity: 0.8,
-        yPercent: 350,  // Adjusted for a more pronounced vertical movement
-        scale: 1.1,  // Start from scale 0 to scale 1 for a scaling effect
-        duration: 1.2,
-        stagger: { each: 0.5, from: 'end' },  // Adjusted stagger for a quicker succession
-      });
-    }
+    //   tlStackCards.from('.card-item', {
+    //     opacity: 0.8,
+    //     yPercent: 350,  // Adjusted for a more pronounced vertical movement
+    //     scale: 1.1,  // Start from scale 0 to scale 1 for a scaling effect
+    //     duration: 1.2,
+    //     stagger: { each: 0.5, from: 'end' },  // Adjusted stagger for a quicker succession
+    //   });
+    // }
 
   });
 });
