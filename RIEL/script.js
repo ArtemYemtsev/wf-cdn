@@ -8,44 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // document.head.appendChild(link);
 
   const style = document.createElement('style');
-  style.innerText = `html:not(.gsap-not-found) [data-prevent-flicker='true'] { visibility: hidden; }
-  .line-mask, .word-mask, .char-mask { padding-block: 0.1em; margin-block: -0.1em; }
-  /* arrow animation */
-  .absolute {
-    position: absolute;
-    left: 0;
-    top: 0;
-  }
-  .arrow-hover-anim {
-    display: flex;
-    height: 12px;
-    color: black;
-    position: relative;
-  }
-  .arrow-hover-anim svg:nth-child(2) g line:nth-child(3) {
-    stroke-dasharray: 1;
-    stroke-dashoffset: 1;
-    transition: stroke-dashoffset 0.4s ease, opacity 0.4s ease;
-  }
-
-  .arrow-hover-anim svg:nth-child(2) g line {
-    stroke-dasharray: 1;
-    stroke-dashoffset: 1;
-    transition: stroke-dashoffset 0.4s 0.4s ease, opacity 0.4s 0.4s ease;
-  }
-
-  .link-arrow:hover .arrow-hover-anim svg:nth-child(1) g line {
-    transition: opacity 0.3s ease;
-  }
-
-  .link-arrow:hover .arrow-hover-anim svg:nth-child(1) g line {
-    opacity: 0;
-  }
-
-  .link-arrow:hover .arrow-hover-anim svg:nth-child(2) g line {
-    stroke-dashoffset: 0;
-  }
-  `;
+  style.innerText = `html:not(.gsap-not-found) [data-prevent-flicker='true'] { visibility: hidden; } .line-mask, .word-mask, .char-mask { padding-block: 0.1em; margin-block: -0.1em; } .absolute {position: absolute;left: 0;top: 0;}.arrow-hover-anim {display: flex;height: 12px;color: black;position: relative;}.arrow-hover-anim svg:nth-child(2) g line:nth-child(3) {stroke-dasharray: 1;stroke-dashoffset: 1;transition: stroke-dashoffset 0.4s ease, opacity 0.4s ease;} .arrow-hover-anim svg:nth-child(2) g line {stroke-dasharray: 1;stroke-dashoffset: 1;transition: stroke-dashoffset 0.4s 0.4s ease, opacity 0.4s 0.4s ease;} .link-arrow:hover .arrow-hover-anim svg:nth-child(1) g line {transition: opacity 0.3s ease;} .link-arrow:hover .arrow-hover-anim svg:nth-child(1) g line {opacity: 0;} .link-arrow:hover .arrow-hover-anim svg:nth-child(2) g line {stroke-dashoffset: 0;}`;
 
   const noscript = document.createElement('noscript');
   noscript.innerText = `<style>[data-prevent-flicker='true'] { visibility: visible !important; }</style>`;
